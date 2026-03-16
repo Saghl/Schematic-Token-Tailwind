@@ -53,6 +53,28 @@ Open the URL shown in the terminal to see the Pricing page. Change a token in `s
 
 ---
 
+## Dark theme
+
+This project includes a **dark theme** implemented as **token overrides**.
+
+- **Where it lives**: `src/index.css` (the `.dark { ... }` block overrides semantic/component tokens)
+- **How it’s applied**: add the `dark` class to the **`<html>`** element
+
+### Switching theme (in this app)
+
+- **UI toggle**: use the **Dark/Light** toggle in the top banner on the Pricing page
+- **Persistence**: your choice is saved in `localStorage` under the key `theme`
+- **Default**: if nothing is saved, the app uses `prefers-color-scheme`
+
+### Switching theme (manually in the console)
+
+```js
+document.documentElement.classList.add('dark')   // enable dark
+document.documentElement.classList.remove('dark') // enable light
+```
+
+---
+
 ## Project structure
 
 All application code lives in **`src/`**:
