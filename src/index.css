@@ -14,12 +14,11 @@
  * There is no config file connecting them — the naming convention IS the mapping.
  *
  * TOKEN LAYERS
- * Tokens are organised in three layers:
- *   1. Primitive  — raw palette values (gray-900, cream-50, etc.)
+ * Tokens are organised in two layers:
+ *   1. Primitive  — raw palette values (gray-900, cream-100, etc.)
  *   2. Semantic   — purpose-based names that reference primitives (surface, text-primary)
- *   3. Component  — map semantic tokens to specific UI elements (btn-primary, btn-secondary)
  *
- * Changing a primitive updates every semantic and component token that references it.
+ * Changing a primitive updates every semantic token that references it.
  */
 
 @import "tailwindcss";
@@ -29,39 +28,32 @@
   /* ── Primitives — raw palette values ──
    * These define the raw colour palette. They generate classes (e.g. bg-cream-50)
    * but you should avoid using them directly — use semantic tokens instead. */
-  --color-gray-900: #111;
-  --color-gray-700: #333;
-  --color-gray-500: #666;
-  --color-cream-50:  #f7f7f4;
-  --color-cream-100: #f2f1ed;
-  --color-cream-200: #e6e5e0;
+  --color-gray-900: #030712;
+  --color-gray-700: #1F2937;
+  --color-gray-500: #4B5563;
+  --color-cream-100: #F7F7F4;
+  --color-cream-200: #F2F1ED;
+  --color-cream-250: #e6e5e0;
   --color-cream-300: #D8D6CE;
-  --color-ink:       #26251e;
-  --color-ink-50:    rgba(38, 37, 30, 0.5);
-  --color-cream-50-70: rgba(247, 247, 244, 0.7);
-  --color-cream-50-60: rgba(247, 247, 244, 0.6);
-
+  --color-cream-400: #CECBBE; 
+  --color-ink: #26251e;
+  --color-ink-50: rgba(38, 37, 30, 0.5);
+  --color-cream-100-70: rgba(247, 247, 244, 0.7);
+  --color-cream-100-60: rgba(247, 247, 244, 0.6);
   /* ── Semantic — purpose-based, reference primitives ──
    * These are the tokens you use in components.
    * e.g. --color-surface → bg-surface, --color-text-primary → text-text-primary */
-  --color-surface:        var(--color-cream-50);
-  --color-card:           var(--color-cream-100);
+  --color-surface:        var(--color-cream-100);
+  --color-card:           var(--color-cream-200);
   --color-text-primary:   var(--color-ink);
   --color-text-muted:     var(--color-ink-50);
   --color-text-secondary: var(--color-gray-500);
   --color-action-primary:          var(--color-gray-900);
   --color-action-primary-hover:    var(--color-gray-700);
-  --color-action-secondary:        var(--color-cream-200);
+  --color-action-secondary:        var(--color-cream-250);
   --color-action-secondary-hover:  var(--color-cream-300);
-
-  /* ── Component — map to semantic tokens ──
-   * These power specific UI elements.
-   * e.g. --color-btn-primary → bg-btn-primary, hover:bg-btn-primary-hover */
-  --color-btn-primary:         var(--color-action-primary);
-  --color-btn-primary-hover:   var(--color-action-primary-hover);
-  --color-btn-primary-text:    var(--color-surface);
-  --color-btn-secondary:       var(--color-action-secondary);
-  --color-btn-secondary-hover: var(--color-action-secondary-hover);
+  --color-action-outline:          #0d9488;
+  --color-action-outline-hover:    #0f766e;
 
   /* ── Typography ──
    * --font-{name} → font-{name}
@@ -77,20 +69,15 @@
   --color-surface: var(--color-gray-900);
   --color-card: var(--color-gray-700);
 
-  --color-text-primary: var(--color-cream-50);
-  --color-text-muted: var(--color-cream-50-70);
-  --color-text-secondary: var(--color-cream-50-60);
+  --color-text-primary: var(--color-cream-100);
+  --color-text-muted: var(--color-cream-100-70);
+  --color-text-secondary: var(--color-cream-100-60);
 
   /* Flip actions so "primary" is high-contrast on dark surfaces. */
-  --color-action-primary: var(--color-cream-50);
-  --color-action-primary-hover: var(--color-cream-200);
+  --color-action-primary: var(--color-cream-100);
+  --color-action-primary-hover: var(--color-cream-300);
   /* Secondary needs to stand out from --color-card (gray-700). */
   --color-action-secondary: var(--color-gray-500);
   --color-action-secondary-hover: var(--color-gray-900);
 
-  --color-btn-primary: var(--color-action-primary);
-  --color-btn-primary-hover: var(--color-action-primary-hover);
-  --color-btn-primary-text: var(--color-gray-900);
-  --color-btn-secondary: var(--color-action-secondary);
-  --color-btn-secondary-hover: var(--color-action-secondary-hover);
 }
